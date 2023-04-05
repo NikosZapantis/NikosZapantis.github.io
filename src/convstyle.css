@@ -112,3 +112,41 @@ label {
     color: #191b28;
     background-color: rgb(248, 164, 6);
 }
+
+@media (min-width: 320px) and (max-width: 1715px) {
+    h1 {
+        width: 65%;
+        left: 20%;
+    }
+
+    form {
+        top: 25%;
+    }
+
+    #InputA {
+        left: 25%;
+        top: 55%;
+    }
+
+    #Output {
+        left: 25%;
+        top: 75%;
+    }
+
+    #InputALabel {
+        position: absolute;
+        left: 10%;
+        top: 57%;
+    }
+
+    #OutputLabel {
+        position: absolute;
+        left: 7%;
+        top: 77%;
+    }
+
+    #conversion-options {
+        width: 85%;
+        left: 8%;
+    }
+}
