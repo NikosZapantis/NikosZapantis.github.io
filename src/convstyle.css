@@ -7,7 +7,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     overflow-x: hidden;
-    font-family: cursive;
+    font-family:'Times New Roman', Times, serif;
 }
 
 h1 {
@@ -24,7 +24,6 @@ h1 {
 }
 
 ::placeholder {
-    font-family: cursive;
     color: rgb(248, 164, 6);
 }
 
