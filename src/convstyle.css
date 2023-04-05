@@ -7,6 +7,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     overflow-x: hidden;
+    font-family: cursive;
 }
 
 h1 {
@@ -20,6 +21,11 @@ h1 {
     top: 15%;
     left: 34.5%;
     box-shadow: 7px 10px 15px 7px rgba(0, 0, 0, 0.9);
+}
+
+::placeholder {
+    font-family: cursive;
+    color: rgb(248, 164, 6);
 }
 
 form {
@@ -37,15 +43,16 @@ form {
 }
 
 #InputA, #Output {
-    color: beige;
+    color: rgb(248, 164, 6);
     background-color: transparent;
-    border-color: rgb(248, 164, 6);
+    border: solid 2px #050507;
     outline-style: none;
     border-radius: 6px;
     position: absolute;
     left: 25%;
     width: 50%;
     height: 7.5%;
+    box-shadow: 5px 13px 11px rgba(0, 0, 0, 1);
 }
 
 label {
@@ -54,7 +61,7 @@ label {
 }
 
 #InputA:hover {
-    color: beige;
+    color: rgb(248, 164, 6);
     background-color: transparent;
     border-color: rgb(248, 164, 6);
     outline-style: double;
@@ -62,9 +69,8 @@ label {
 }
 
 #Output:hover {
-    color: beige;
+    color: rgb(248, 164, 6);
     background-color: transparent;
-    border-color: rgb(248, 164, 6);
     cursor: default;
 }
 
@@ -113,13 +119,15 @@ label {
     background-color: rgb(248, 164, 6);
 }
 
-@media (min-width: 320px) and (max-width: 1715px) {
+@media (min-width: 320px) and (max-width: 2685px) {
     h1 {
         width: 65%;
         left: 20%;
     }
 
     form {
+        width: 60%;
+        left: 22.5%;
         top: 25%;
     }
 
@@ -141,12 +149,12 @@ label {
 
     #OutputLabel {
         position: absolute;
-        left: 7%;
+        left: 10%;
         top: 77%;
     }
 
     #conversion-options {
-        width: 85%;
-        left: 8%;
+        width: 60%;
+        left: 20%;
     }
 }
