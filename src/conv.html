@@ -23,7 +23,9 @@
             <select id="unit-type" onchange="selectConversion()">
                 <option id="selectOpt" selected disabled value="">--Select--</option>
                 <option id="storageOpt" value="storage">Storage</option>
+                <option id="tempOpt" value="temperature">Temperature</option>
                 <option id="numberOpt" value="number">Number</option>
+                <option id="currencyOpt" value="currency">Currency</option>
             </select>
         </div>
 
@@ -33,7 +35,7 @@
         <br><br><br><br>
         <div id="inputs">
             <label id="InputALabel" for="InputA">Input:</label>
-            <input type="text" id="InputA" placeholder="Enter your amount" oninput="convert(), validateInput()" autocomplete="off"/>
+            <input type="number" step="0.1" id="InputA" placeholder="Enter your amount" oninput="convert(), validateInput()" autocomplete="off"/>
             <br><br><br>
             <label id="OutputLabel" for="Output">Output:</label>
             <input type="text" id="Output" placeholder="Result will be shown here" readonly/>
