@@ -104,7 +104,7 @@ form {
     box-shadow: 0px 8px 14px 8px rgba(0, 0, 0, 0.8);
 }
 
-#selectOpt, #storageOpt, #numberOpt, #storageUnit, #numberUnit, #tempOpt, #currencyOpt {
+#selectOpt, #storageOpt, #numberOpt, #tempOpt, #currencyOpt, #storageUnit, #numberUnit, #temperatureUnit, #currencyUnit {
     color: rgb(248, 164, 6);
     background-color: #191b28;
 }
