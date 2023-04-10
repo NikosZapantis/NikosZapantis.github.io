@@ -59,7 +59,7 @@ function resetInputs() {
     document.getElementById("Output").value = "";
 }
 
-//?DONE todo: every time user change the unit1 or unit2 both input and output has to get ""
+//Validating the input for all the categories , such as binary can accept only 0 and 1 as input etc.
 function validateInput() {
     var type = document.getElementById("unit-type").value;
     var unit1 = document.getElementById("unit1").value;
@@ -127,7 +127,7 @@ function convert() {
 
     if(type === "storage") {
 
-        //adjusting ratios so the conversions done in seconds
+        //adjusting ratios
         var ratios = {
             "Bytes": 1,
             "Kilobytes": 1024,
@@ -150,7 +150,7 @@ function convert() {
         }
     }else if(type === "number") {
 
-        //adjusting ratios so the conversions done in seconds
+        //adjusting ratios
         var radixes = {
             "Binary": 2, 
             "Decimal": 10,
@@ -186,6 +186,7 @@ function convert() {
             {unit1: "Kelvin", unit2: "Fahrenheit", formula: (k) => k * 1.8 - 459.67}
         ]
 
+        //Finding the specific formula that represents the conversion between unit1 and unit2 that the user just chose
         const formula = conversionFormulas.find(
             (f) => f.unit1 === unit1 && f.unit2 === unit2
         ).formula;
@@ -195,7 +196,7 @@ function convert() {
         Output.value = result.toFixed(2) + " " + unit2;
     }else if(type === "currency") {
 
-        //?DONE todo: make a 2d array with all the exchange rate from unit1 to unit2's so in every conversion i can peek the specific exchange rate and just multiply the input
+        //?DONE todo: make a 2d array with all the exchange rate from unit1 to unit2's so in every conversion I can peek the specific exchange rate and just multiply the input
         const currencyRates = {
             "Euro": {"Euro": 1, "USD": 1.093, "Bitcoin": 0.000039, "Czech koruna": 23.51, "Albanian Lek": 112.79, "Russian ruble": 89.17} , 
             "USD": {"Euro": 0.91, "USD": 1, "Bitcoin": 0.000036, "Czech koruna": 21.38, "Albanian Lek": 102.59, "Russian ruble": 81.1} , 
