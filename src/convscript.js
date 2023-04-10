@@ -1,62 +1,57 @@
+//Setting all option categories with their id's and input type in one container and in the selectConversion() function i choose the specific one
+const conversionOptions = {
+    storage: {options: ["Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes"], inputType: "number", id: "storageUnit"} ,
+    number: {options: ["Binary", "Decimal", "Octal", "Hexadecimal"], inputType: "text", id: "numberUnit"} ,
+    temperature: {options: ["Celsius", "Fahrenheit", "Kelvin"], inputType: "number", id: "temperatureUnit"} ,
+    currency: {options: ["Euro", "USD", "Bitcoin", "Czech koruna", "Albanian Lek", "Russian ruble"], inputType: "number", id: "currencyUnit"}
+}
+
 function selectConversion() {
-    var type = document.getElementById("unit-type").value;
-    var options;
+    const type = document.getElementById("unit-type").value;
+    const {options, inputType} = conversionOptions[type] || {
+        options: [],
+        inputType: "text",
+    };
 
-    //Options declaration so every time user select the specific category to show only this category's options
-    if(type === "storage") {
-        options = ["Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes"];
-        document.getElementById("InputA").type = "number";
-    }else if(type === "number") {
-        options = ["Binary", "Decimal", "Octal", "Hexadecimal"];
-        document.getElementById("InputA").type = "text";
-    }else if(type === "temperature") {
-        options = ["Celsius", "Fahrenheit", "Kelvin"];
-        document.getElementById("InputA").type = "number";
-    }else if(type === "currency") {
-        options = ["Euro", "USD", "Bitcoin", "Czech koruna", "Albanian Lek", "Russian ruble"];
-        document.getElementById("InputA").type = "number";
-    }else {
-        options = [];
-        document.getElementById("InputA").type = "text";
-    }
+    const inputA = document.getElementById("InputA");
+    inputA.type = inputType;
 
-    //Creating 2 elements for the user to choose the starting unit and the unit he wants the amount to be converted to
-    var select1 = document.createElement("select");
+    const select1 = document.createElement("select");
     select1.id = "unit1";
-    var select2 = document.createElement("select");
+    const select2 = document.createElement("select");
     select2.id = "unit2";
 
-    //Creating options for specific type that has been selected
-    for(var i = 0; i < options.length; i++) {
-        
-        var option1 = document.createElement("option");
+    for (let i = 0; i < options.length; i++) {
+        const option1 = document.createElement("option");
         option1.value = options[i];
-        option1.text = options[i];
-        option1.id = "storageUnit";
+        option1.textContent = options[i];
+        option1.id = conversionOptions[type]?.id;
 
-        var option2 = document.createElement("option");
+        const option2 = document.createElement("option");
         option2.value = options[i];
-        option2.text = options[i];
-        option2.id = "numberUnit";
+        option2.textContent = options[i];
+        option2.id = conversionOptions[type]?.id;
 
         select1.add(option1);
         select2.add(option2);
     }
 
-    //passing with innerHtml the elements at the page
-    var div = document.getElementById("conversion-options");
-    div.innerHTML = "";
+    const div = document.getElementById("conversion-options");
+    div.textContent = "";
     div.appendChild(select1);
-    div.innerHTML += " to ";
+    div.appendChild(document.createTextNode(" to "));
     div.appendChild(select2);
 
     resetInputs();
 }
 
+//reseting input and output every time the selectConversion() function ends
 function resetInputs() {
-
-    document.getElementById("InputA").value = "";
-    document.getElementById("Output").value = "";
+    const inputA = document.getElementById("InputA");
+    const output = document.getElementById("Output");
+  
+    inputA.value = "";
+    output.value = "";
 }
 
 //Validating the input for all the categories , such as binary can accept only 0 and 1 as input etc.
@@ -128,13 +123,7 @@ function convert() {
     if(type === "storage") {
 
         //adjusting ratios
-        var ratios = {
-            "Bytes": 1,
-            "Kilobytes": 1024,
-            "Megabytes": 1048576,
-            "Gigabytes": 1073741824,
-            "Terabytes": 1099511627776
-        };
+        var ratios = {"Bytes": 1, "Kilobytes": 1024, "Megabytes": 1048576, "Gigabytes": 1073741824, "Terabytes": 1099511627776};
 
         var ratio1 = ratios[unit1];
         var ratio2 = ratios[unit2];
@@ -151,12 +140,7 @@ function convert() {
     }else if(type === "number") {
 
         //adjusting ratios
-        var radixes = {
-            "Binary": 2, 
-            "Decimal": 10,
-            "Octal": 8,
-            "Hexadecimal": 16
-        };
+        var radixes = {"Binary": 2, "Decimal": 10, "Octal": 8, "Hexadecimal": 16};
 
         var radix1 = radixes[unit1];
         var radix2 = radixes[unit2];
@@ -207,9 +191,7 @@ function convert() {
         }
 
         var rate1 = currencyRates[unit1][unit2];
-        var result;
-
-        result = InputA * rate1;
+        var result = InputA * rate1;
 
         Output.value = result.toFixed(2) + " " + unit2;
     }
