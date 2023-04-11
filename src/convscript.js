@@ -3,8 +3,9 @@ const conversionOptions = {
     storage: {options: ["Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes"], inputType: "number", id: "storageUnit"} ,
     number: {options: ["Binary", "Decimal", "Octal", "Hexadecimal"], inputType: "text", id: "numberUnit"} ,
     temperature: {options: ["Celsius", "Fahrenheit", "Kelvin"], inputType: "number", id: "temperatureUnit"} ,
-    //TODO: Add all the new currencies in the options table
-    currency: {options: ["Euro", "USD", "Bitcoin", "Czech koruna", "Albanian Lek", "Russian ruble"], inputType: "number", id: "currencyUnit"}
+    //?DONE todo: Add all the new currencies in the options table
+    currency: {options: ["Euro", "USD", "British Pound", "Bitcoin", "Czech koruna", "Albanian Lek", 
+                        "Russian ruble", "Bulgarian Lev", "Turkish Lira", "Cypriot Pound"], inputType: "number", id: "currencyUnit"}
 }
 
 function selectConversion() {
