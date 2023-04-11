@@ -201,8 +201,9 @@ function convert() {
                             "Russian ruble": 45.76, "Bulgarian Lev": 1, "Turkish Lira": 10.76, "Cypriot Pound": 0.29} ,
             "Turkish Lira": {"Euro": 0.048, "USD": 0.052, "British Pound": 0.042, "Bitcoin": 0.0000017, "Czech koruna": 1.113, "Albanian Lek": 5.36, 
                             "Russian ruble": 4.25, "Bulgarian Lev": 0.093, "Turkish Lira": 1, "Cypriot Pound": 0.02783} ,
-            //TODO: Add Cypriot pound to all currencies exchange rate 
-            "Cypriot Pound": {} 
+            //?DONE todo: Add Cypriot pound to all currencies exchange rate 
+            "Cypriot Pound": {"Euro": 1.708, "USD": 1.86, "British Pound": 1.49, "Bitcoin": 0.000000067, "Czech koruna": 40.1, "Albanian Lek": 192.82, 
+                            "Russian ruble": 153.44, "Bulgarian Lev": 3.34, "Turkish Lira": 35.96, "Cypriot Pound": 1} 
         }
 
         var rate1 = currencyRates[unit1][unit2];
