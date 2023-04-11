@@ -117,6 +117,7 @@ select:focus {
 #conversion-options {
     position: absolute;
     background-color: transparent;
+    border: solid 2px #050507;
     color: rgb(248, 164, 6);
     width: 60%;
     left: 20%;
