@@ -125,7 +125,7 @@ function convert() {
     if(type === "storage") {
 
         //adjusting ratios
-        var ratios = {"Bytes": 1, "Kilobytes": 1024, "Megabytes": 1048576, "Gigabytes": 1073741824, "Terabytes": 1099511627776};
+        var ratios = {"Bytes": 1, "Kilobytes": 2 ** 10, "Megabytes": 2 ** 20, "Gigabytes": 2 ** 30, "Terabytes": 2 ** 40};
 
         var ratio1 = ratios[unit1];
         var ratio2 = ratios[unit2];
