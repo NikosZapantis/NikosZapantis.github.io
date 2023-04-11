@@ -3,6 +3,7 @@ const conversionOptions = {
     storage: {options: ["Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes"], inputType: "number", id: "storageUnit"} ,
     number: {options: ["Binary", "Decimal", "Octal", "Hexadecimal"], inputType: "text", id: "numberUnit"} ,
     temperature: {options: ["Celsius", "Fahrenheit", "Kelvin"], inputType: "number", id: "temperatureUnit"} ,
+    //TODO: Add all the new currencies in the options table
     currency: {options: ["Euro", "USD", "Bitcoin", "Czech koruna", "Albanian Lek", "Russian ruble"], inputType: "number", id: "currencyUnit"}
 }
 
@@ -182,12 +183,26 @@ function convert() {
 
         //?DONE todo: make a 2d array with all the exchange rate from unit1 to unit2's so in every conversion I can peek the specific exchange rate and just multiply the input
         const currencyRates = {
-            "Euro": {"Euro": 1, "USD": 1.093, "Bitcoin": 0.000039, "Czech koruna": 23.51, "Albanian Lek": 112.79, "Russian ruble": 89.17} , 
-            "USD": {"Euro": 0.91, "USD": 1, "Bitcoin": 0.000036, "Czech koruna": 21.38, "Albanian Lek": 102.59, "Russian ruble": 81.1} , 
-            "Bitcoin": {"Euro": 25358.16, "USD": 27884.5, "Bitcoin": 1, "Czech koruna": 596201.28, "Albanian Lek": 2860587.2, "Russian ruble": 2261432.95} ,
-            "Czech koruna": {"Euro": 0.043, "USD": 0.047, "Bitcoin": 0.0000017, "Czech koruna": 1, "Albanian Lek": 4.8, "Russian ruble": 3.79} , 
-            "Albanian Lek": {"Euro": 0.0089, "USD": 0.0098, "Bitcoin": 0.000000357, "Czech koruna": 0.21, "Albanian Lek": 1, "Russian ruble": 0.79} ,
-            "Russian ruble": {"Euro": 0.011, "USD": 0.012, "Bitcoin": 0.000000442, "Czech koruna": 0.26, "Albanian Lek": 1.26, "Russian ruble": 1}
+            "Euro": {"Euro": 1, "USD": 1.093, "British Pound": 0.88, "Bitcoin": 0.000039, "Czech koruna": 23.51, "Albanian Lek": 112.79, 
+                    "Russian ruble": 89.17, "Bulgarian Lev": 1.96, "Turkish Lira": 21.05, "Cypriot Pound": 0.532} , 
+            "USD": {"Euro": 0.91, "USD": 1, "British Pound": 0.80, "Bitcoin": 0.000036, "Czech koruna": 21.38, "Albanian Lek": 102.59, 
+                    "Russian ruble": 81.1, "Bulgarian Lev": 1.79, "Turkish Lira": 19.29, "Cypriot Pound": 0.88} , 
+            "British Pound": {"Euro": 1.14, "USD": 1.24, "British Pound": 1, "Bitcoin": 0.000041, "Czech koruna": 26.68, "Albanian Lek": 128.61, 
+                              "Russian ruble": 102.16, "Bulgarian Lev": 2.23, "Turkish Lira": 23.99, "Cypriot Pound": 0.661} ,
+            "Bitcoin": {"Euro": 25358.16, "USD": 27884.5, "British Pound": 24170.09, "Bitcoin": 1, "Czech koruna": 596201.28, "Albanian Lek": 2860587.2, 
+                        "Russian ruble": 2261432.95, "Bulgarian Lev": 53921.82, "Turkish Lira": 580378.7, "Cypriot Pound": 0} ,
+            "Czech koruna": {"Euro": 0.043, "USD": 0.047, "British Pound": 0.037, "Bitcoin": 0.0000017, "Czech koruna": 1, "Albanian Lek": 4.8, 
+                            "Russian ruble": 3.79, "Bulgarian Lev": 0.084, "Turkish Lira": 0.9, "Cypriot Pound": 0.2471} , 
+            "Albanian Lek": {"Euro": 0.0089, "USD": 0.0098, "British Pound": 0.0078, "Bitcoin": 0.000000357, "Czech koruna": 0.21, "Albanian Lek": 1, 
+                            "Russian ruble": 0.79, "Bulgarian Lev": 0.017, "Turkish Lira": 0.19, "Cypriot Pound": 0.005057} ,
+            "Russian ruble": {"Euro": 0.011, "USD": 0.012, "British Pound": 0.0098, "Bitcoin": 0.000000442, "Czech koruna": 0.26, "Albanian Lek": 1.26, 
+                            "Russian ruble": 1, "Bulgarian Lev": 0.022, "Turkish Lira": 0.24, "Cypriot Pound": 0.016} ,
+            "Bulgarian Lev": {"Euro": 0.51, "USD": 0.56, "British Pound": 0.45, "Bitcoin": 0.000019, "Czech koruna": 11.97, "Albanian Lek": 57.69, 
+                            "Russian ruble": 45.76, "Bulgarian Lev": 1, "Turkish Lira": 10.76, "Cypriot Pound": 0.29} ,
+            "Turkish Lira": {"Euro": 0.048, "USD": 0.052, "British Pound": 0.042, "Bitcoin": 0.0000017, "Czech koruna": 1.113, "Albanian Lek": 5.36, 
+                            "Russian ruble": 4.25, "Bulgarian Lev": 0.093, "Turkish Lira": 1, "Cypriot Pound": 0.02783} ,
+            //TODO: Add Cypriot pound to all currencies exchange rate 
+            "Cypriot Pound": {} 
         }
 
         var rate1 = currencyRates[unit1][unit2];
