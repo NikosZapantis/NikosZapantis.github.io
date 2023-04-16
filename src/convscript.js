@@ -1,13 +1,16 @@
 //Setting all option categories with their id's and input type in one container and in the selectConversion() function i choose the specific one
 const conversionOptions = {
-    storage: {options: ["Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes"], inputType: "number", id: "storageUnit"} ,
-    number: {options: ["Binary", "Decimal", "Octal", "Hexadecimal"], inputType: "text", id: "numberUnit"} ,
-    temperature: {options: ["Celsius", "Fahrenheit", "Kelvin"], inputType: "number", id: "temperatureUnit"} ,
+    storage: {options: ["Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", "Petabytes"], inputType: "number", id: "secondOpts"} ,
+    number: {options: ["Binary", "Decimal", "Octal", "Hexadecimal"], inputType: "text", id: "secondOpts"} ,
+    temperature: {options: ["Celsius", "Fahrenheit", "Kelvin", "Rankine"], inputType: "number", id: "secondOpts"} ,
+    time : {options: ["Decades", "Years", "Months", "Weeks", "Days", "Hours", "Minutes", "Seconds"], inputType: "number", id: "secondOpts"} ,
     //?DONE todo: Add all the new currencies in the options table
     currency: {options: ["Euro", "USD", "British Pound", "Bitcoin", "Czech koruna", "Albanian Lek", 
-                        "Russian ruble", "Bulgarian Lev", "Turkish Lira", "Cypriot Pound"], inputType: "number", id: "currencyUnit"}
+                        "Russian ruble", "Bulgarian Lev", "Turkish Lira", "Cypriot Pound"], inputType: "number", id: "secondOpts"}
 }
 
+//?DONE todo: Add rankine at temperature units and their conversion formulas
+//?DONE todo: Add time conversion at the convert() function
 function selectConversion() {
     const type = document.getElementById("unit-type").value;
     const {options, inputType} = conversionOptions[type] || {
@@ -44,11 +47,11 @@ function selectConversion() {
     div.appendChild(document.createTextNode(" to "));
     div.appendChild(select2);
 
-    resetInputs();
+    resetCurrentInputs();
 }
 
 //reseting input and output every time the selectConversion() function ends
-function resetInputs() {
+function resetCurrentInputs() {
     const inputA = document.getElementById("InputA");
     const output = document.getElementById("Output");
   
@@ -101,6 +104,20 @@ function validateInput() {
     }
 }
 
+document.addEventListener("keydown", function(event) {
+    var keyCode = event.keyCode;
+    var keyValue = event.key;
+    var validKeys = ["Enter", "Delete"/*, "Backspace"*/];
+    
+    if(validKeys.includes(keyValue)) {
+        if(keyValue === "Enter") {
+            convert();  
+        }else if(keyValue === "Delete"/*Could be backspace too*/) {
+            resetCurrentInputs();
+        }
+    }
+});
+
 //?DONE todo: Add temperature and currency conversion
 function convert() {
     var type = document.getElementById("unit-type").value;
@@ -125,7 +142,14 @@ function convert() {
     if(type === "storage") {
 
         //adjusting ratios
-        var ratios = {"Bytes": 1, "Kilobytes": 2 ** 10, "Megabytes": 2 ** 20, "Gigabytes": 2 ** 30, "Terabytes": 2 ** 40};
+        var ratios = 
+            {"Bytes": 1, 
+            "Kilobytes": 2 ** 10, 
+            "Megabytes": 2 ** 20, 
+            "Gigabytes": 2 ** 30, 
+            "Terabytes": 2 ** 40, 
+            "Petabytes": 2 ** 50
+        };
 
         var ratio1 = ratios[unit1];
         var ratio2 = ratios[unit2];
@@ -142,7 +166,12 @@ function convert() {
     }else if(type === "number") {
 
         //adjusting ratios
-        var radixes = {"Binary": 2, "Decimal": 10, "Octal": 8, "Hexadecimal": 16};
+        var radixes = 
+            {"Binary": 2, 
+            "Decimal": 10, 
+            "Octal": 8, 
+            "Hexadecimal": 16
+        };
 
         var radix1 = radixes[unit1];
         var radix2 = radixes[unit2];
@@ -157,19 +186,44 @@ function convert() {
 
             Output.value = parseInt(InputA, radix1).toString(radix2);
         }
+    }else if(type === "time") {
+        var InputA = parseInt(document.getElementById("InputA").value);
+        //?DONE todo: Adjust the Tratios const to peek the specific ratios and then make the conversions
+        const Tratios = 
+            {"Decades": 10 * 365.25 * 24 * 60 * 60, 
+            "Years": 365.25 * 24 * 60 * 60, 
+            "Months": 30.44 * 24 * 60 * 60, //TODO 
+            "Weeks": 7 * 24 * 60 * 60, 
+            "Days": 24 * 60 * 60, 
+            "Hours": 60 * 60, 
+            "Minutes": 60, 
+            "Seconds": 1
+        };
+                    
+        const inputInSeconds = InputA * Tratios[unit1];
+        Output.value = inputInSeconds / Tratios[unit2] + " " + unit2;
+
     }else if(type === "temperature") {
 
         var InputA = parseInt(document.getElementById("InputA").value);
+        //?DONE todo: Add the rankine unit formulas and adjust the other for rankine too.
         const conversionFormulas = [
             {unit1: "Celsius", unit2: "Celsius", formula: (c) => c} ,
             {unit1: "Celsius", unit2: "Fahrenheit", formula: (c) => c * 1.8 + 32} ,
-            {unit1: "Celsius", unit2: "Kelvin", formula: (c) => c + 273.15} , 
+            {unit1: "Celsius", unit2: "Kelvin", formula: (c) => c + 273.15} ,
+            {unit1: "Celsius", unit2: "Rankine", formula: (c) => c * 1.8 + 491.67} , 
             {unit1: "Fahrenheit", unit2: "Fahrenheit", formula: (f) => f} ,
             {unit1: "Fahrenheit", unit2: "Celsius", formula: (f) => (f - 32) / 1.8} ,
             {unit1: "Fahrenheit", unit2: "Kelvin", formula: (f) => (f + 459.67) * (5/9)} ,
+            {unit1: "Fahrenheit", unit2: "Rankine", formula: (f) => f + 459.67} ,
             {unit1: "Kelvin", unit2: "Kelvin", formula: (k) => k} ,
             {unit1: "Kelvin", unit2: "Celsius", formula: (k) => k - 273.15} ,
-            {unit1: "Kelvin", unit2: "Fahrenheit", formula: (k) => k * 1.8 - 459.67}
+            {unit1: "Kelvin", unit2: "Fahrenheit", formula: (k) => k * 1.8 - 459.67} ,
+            {unit1: "Kelvin", unit2: "Rankine", formula: (k) => k * 1.8} ,
+            {unit1: "Rankine", unit2: "Rankine", formula: (r) => r} ,
+            {unit1: "Rankine", unit2: "Celsius", formula: (r) => (r - 491.67) * (5/9)} ,
+            {unit1: "Rankine", unit2: "Fahrenheit", formula: (r) => r - 459.67} ,
+            {unit1: "Rankine", unit2: "Kelvin", formula: (r) => r * (5/9)}
         ]
 
         //Finding the specific formula that represents the conversion between unit1 and unit2 that the user just chose
@@ -179,9 +233,10 @@ function convert() {
         
         const result = formula(InputA);
     
-        Output.value = result.toFixed(2) + " " + unit2;
+        Output.value = result.toFixed(1) + " " + unit2;
     }else if(type === "currency") {
 
+        var InputA = parseInt(document.getElementById("InputA").value);
         //?DONE todo: make a 2d array with all the exchange rate from unit1 to unit2's so in every conversion I can peek the specific exchange rate and just multiply the input
         const currencyRates = {
             "Euro": {"Euro": 1, "USD": 1.093, "British Pound": 0.88, "Bitcoin": 0.000039, "Czech koruna": 23.51, "Albanian Lek": 112.79, 
@@ -207,7 +262,7 @@ function convert() {
                             "Russian ruble": 153.44, "Bulgarian Lev": 3.34, "Turkish Lira": 35.96, "Cypriot Pound": 1} 
         }
 
-        var rate1 = currencyRates[unit1][unit2];
+        var rate1 =  currencyRates[unit1][unit2];
         var result = InputA * rate1;
 
         Output.value = result.toFixed(2) + " " + unit2;
