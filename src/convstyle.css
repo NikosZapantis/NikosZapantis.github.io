@@ -38,7 +38,7 @@ form {
     width: 60%;
     left: 22.5%;
     top: 25%;
-    height: 25%;
+    height: 35%;
     box-shadow: 0px 23px 15px 7px rgba(0, 0, 0, 0.9);
 }
 
@@ -58,11 +58,11 @@ form {
 }
 
 #InputA {
-    top: 55%;
+    top: 50%;
 }
 
 #Output {
-    top: 75%;
+    top: 82%;
 }
 
 #InputALabel, #OutputLabel {
@@ -71,11 +71,11 @@ form {
 }
 
 #InputALabel {
-    top: 57%;
+    top: 50%;
 }
 
 #OutputLabel {
-    top: 77%;
+    top: 82%;
 }
 
 #InputA:hover {
@@ -104,7 +104,7 @@ form {
     box-shadow: 0px 8px 14px 8px rgba(0, 0, 0, 0.8);
 }
 
-#selectOpt, #storageOpt, #numberOpt, #tempOpt, #currencyOpt, #storageUnit, #numberUnit, #temperatureUnit, #currencyUnit {
+#selectOpt, #secondOpts {
     color: rgb(248, 164, 6);
     background-color: #191b28;
 }
@@ -121,7 +121,7 @@ select:focus {
     color: rgb(248, 164, 6);
     width: 60%;
     left: 20%;
-    top: 30%;
+    top: 25%;
     box-shadow: 0px 8px 14px 8px rgba(0, 0, 0, 0.8);
     border-radius: 25px;
     outline-style: none;
@@ -132,6 +132,47 @@ select:focus {
     color:rgb(248, 164, 6);
     border: solid 2px #000000;
     border-radius: 25px;
+}
+
+#resetBtn {
+    position: absolute;
+    border: solid 2px black;
+    border-radius: 25px;
+    text-align: center;
+    padding: 2px 30px;
+    background-color: transparent;
+    color: rgb(248, 164, 6);
+    top: 67.5%;
+    right: 1%;
+    cursor: pointer;
+    box-shadow: 0px 8px 14px 8px rgba(0, 0, 0, 0.8);
+    transition: 1s ease-in-out;
+}
+
+#resetBtn:hover {
+    transition: 1s ease-in-out;
+    transform: translateY(-3px) translateX(3px);
+}
+
+#resultBtn {
+    position: absolute;
+    font-size: medium;
+    border: solid 2px black;
+    border-radius: 25px;
+    text-align: center;
+    padding: 2px 30px;
+    background-color: transparent;
+    color: rgb(248, 164, 6);
+    top: 67.5%;
+    right: 45%; 
+    cursor: pointer;
+    box-shadow: 0px 1px 8px 3px rgba(190, 126, 8, 0.801);
+    transition: .5s ease-in-out;
+}
+
+#resultBtn:hover {
+    transition: 0.5s ease-in-out;
+    box-shadow: 0px 2px 14px 2px rgb(255, 166, 0);
 }
 
 ::selection {
