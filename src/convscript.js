@@ -1,6 +1,7 @@
 //Setting all option categories with their id's and input type in one container and in the selectConversion() function i choose the specific one
 const conversionOptions = {
-    storage: {options: ["Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", "Petabytes"], inputType: "number", id: "secondOpts"} ,
+    //TODO: Add the conversion rates for exabytes-geopbytes at the convert() function
+    storage: {options: ["Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", "Petabytes", "Exabytes", "Zettabytes", "Yottabytes", "Brontobytes", "Geopbytes"], inputType: "number", id: "secondOpts"} ,
     number: {options: ["Binary", "Decimal", "Octal", "Hexadecimal"], inputType: "text", id: "secondOpts"} ,
     temperature: {options: ["Celsius", "Fahrenheit", "Kelvin", "Rankine"], inputType: "number", id: "secondOpts"} ,
     time : {options: ["Decades", "Years", "Months", "Weeks", "Days", "Hours", "Minutes", "Seconds"], inputType: "number", id: "secondOpts"} ,
