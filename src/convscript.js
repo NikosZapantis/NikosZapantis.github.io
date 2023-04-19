@@ -1,6 +1,6 @@
 //Setting all option categories with their id's and input type in one container and in the selectConversion() function i choose the specific one
 const conversionOptions = {
-    //TODO: Add the conversion rates for exabytes-geopbytes at the convert() function
+    //?Done todo: Add the conversion rates for exabytes-geopbytes at the convert() function
     storage: {options: ["Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", "Petabytes", "Exabytes", "Zettabytes", "Yottabytes", "Brontobytes", "Geopbytes"], inputType: "number", id: "secondOpts"} ,
     number: {options: ["Binary", "Decimal", "Octal", "Hexadecimal"], inputType: "text", id: "secondOpts"} ,
     temperature: {options: ["Celsius", "Fahrenheit", "Kelvin", "Rankine"], inputType: "number", id: "secondOpts"} ,
@@ -149,7 +149,12 @@ function convert() {
             "Megabytes": 2 ** 20, 
             "Gigabytes": 2 ** 30, 
             "Terabytes": 2 ** 40, 
-            "Petabytes": 2 ** 50
+            "Petabytes": 2 ** 50,
+            "Exabytes": 2 ** 60,
+            "Zettabytes": 2 ** 70,
+            "Yottabytes": 2 ** 80,
+            "Brontobytes": 2 ** 90,
+            "Geopbytes": 2 ** 100
         };
 
         var ratio1 = ratios[unit1];
@@ -193,7 +198,7 @@ function convert() {
         const Tratios = 
             {"Decades": 10 * 365.25 * 24 * 60 * 60, 
             "Years": 365.25 * 24 * 60 * 60, 
-            "Months": 30.44 * 24 * 60 * 60, //TODO 
+            "Months": 30.44 * 24 * 60 * 60,
             "Weeks": 7 * 24 * 60 * 60, 
             "Days": 24 * 60 * 60, 
             "Hours": 60 * 60, 
