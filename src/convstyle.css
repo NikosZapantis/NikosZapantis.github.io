@@ -38,7 +38,7 @@ form {
     width: 60%;
     left: 22.5%;
     top: 25%;
-    height: 35%;
+    height: 25%;
     box-shadow: 0px 23px 15px 7px rgba(0, 0, 0, 0.9);
 }
 
@@ -58,11 +58,11 @@ form {
 }
 
 #InputA {
-    top: 50%;
+    top: 55%;
 }
 
 #Output {
-    top: 82%;
+    top: 75%;
 }
 
 #InputALabel, #OutputLabel {
@@ -71,11 +71,11 @@ form {
 }
 
 #InputALabel {
-    top: 50%;
+    top: 55%;
 }
 
 #OutputLabel {
-    top: 82%;
+    top: 75%;
 }
 
 #InputA:hover {
@@ -121,7 +121,7 @@ select:focus {
     color: rgb(248, 164, 6);
     width: 60%;
     left: 20%;
-    top: 25%;
+    top: 30%;
     box-shadow: 0px 8px 14px 8px rgba(0, 0, 0, 0.8);
     border-radius: 25px;
     outline-style: none;
@@ -134,45 +134,46 @@ select:focus {
     border-radius: 25px;
 }
 
+#resultBtn {
+    position: absolute;
+    font-size: medium;
+    border: solid 2px black;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0.5px 35px;
+    background-color: transparent;
+    color: rgb(248, 164, 6);
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 4px rgba(190, 126, 8, 0.801);
+    transition: 0.5s ease-in-out;
+    top: 55%;
+    right: 15%;
+}
+
+#resultBtn:hover {
+    transition: 0.5s ease-in-out;
+    box-shadow: 0px 0px 5px 4px rgb(255, 166, 0);
+}
+
 #resetBtn {
     position: absolute;
     border: solid 2px black;
     border-radius: 25px;
     text-align: center;
-    padding: 2px 30px;
+    padding: 2px 15px;
     background-color: transparent;
     color: rgb(248, 164, 6);
-    top: 67.5%;
-    right: 1%;
     cursor: pointer;
     box-shadow: 0px 8px 14px 8px rgba(0, 0, 0, 0.8);
-    transition: 1s ease-in-out;
+    transition: 0.5s ease-in-out;
+    top: 75%;
+    right: 15%;
 }
 
 #resetBtn:hover {
-    transition: 1s ease-in-out;
-    transform: translateY(-3px) translateX(3px);
-}
-
-#resultBtn {
-    position: absolute;
-    font-size: medium;
-    border: solid 2px black;
-    border-radius: 25px;
-    text-align: center;
-    padding: 2px 30px;
-    background-color: transparent;
-    color: rgb(248, 164, 6);
-    top: 67.5%;
-    right: 45%; 
-    cursor: pointer;
-    box-shadow: 0px 1px 8px 3px rgba(190, 126, 8, 0.801);
-    transition: .5s ease-in-out;
-}
-
-#resultBtn:hover {
+    background-color: rgb(248, 164, 6);
+    color: black;
     transition: 0.5s ease-in-out;
-    box-shadow: 0px 2px 14px 2px rgb(255, 166, 0);
 }
 
 ::selection {
@@ -183,4 +184,18 @@ select:focus {
 ::-moz-selection {
     color: #191b28;
     background-color: rgb(248, 164, 6);
+}
+
+@media (min-width: 320px) and (max-width: 1500px) {
+    #resultBtn {
+        padding: 5px 35px;
+        top: 55%;
+        right: 5%;
+    }
+
+    #resetBtn {
+        padding: 5px 25px;
+        top: 77%;
+        right: 3%;
+    }
 }
