@@ -1,50 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
     <link rel="icon" href="../faviconMC.jpg">
     <link rel="stylesheet" href="convstyle.css">
     <script type="text/javascript" src="convscript.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
     
-<head>
+    <head>
 
-    <meta charset="utf-8">
-    <title>Multi-converter</title>
-        <h1>Multi-Unit Converter</h1>    
-
-</head>
-
-<body>
-
-    <form class="Converter-box">
-
-        <br>
-        <div id="conversion-type">
-            <label for="unit-type"></label>
-            <select id="unit-type" onchange="selectConversion()">
-                <option id="selectOpt" selected disabled value="">--Select--</option>
-                <option id="selectOpt" value="storage">Storage</option>
-                <option id="selectOpt" value="temperature">Temperature</option>
-                <option id="selectOpt" value="time">Time</option>
-                <option id="selectOpt" value="number">Number</option>
-                <option id="selectOpt" value="currency">Currency</option>
-            </select>
-        </div>
-
-        <br><br>
-        <div id="conversion-options" onchange="resetCurrentInputs()">Conversion-options will be shown here...</div>
-
-        <br><br><br><br>
-        <div id="inputs">
-            <label id="InputALabel" for="InputA">Input:</label>
-            <input type="number" step="0.1" id="InputA" placeholder="Enter your amount" oninput="validateInput()" autocomplete="off"/>
-            <input type="button" id="resultBtn" value="=" onclick="convert()">
+        <meta charset="utf-8">
+        <title>Multi-converter</title>
+            <h1>Multi-Unit Converter</h1>    
+    
+    </head>
+    
+    <body>
+    
+        <form class="Converter-box">
+    
             <br>
-            <label id="OutputLabel" for="Output">Output:</label>
-            <input type="text" id="Output" placeholder="Result will be shown here" readonly/>
-            <input type="button" id="resetBtn" value="Reset I/O" onclick="resetCurrentInputs()">
-        </div>
-        <br>
-    </form>
-
-</body>
-</html>
+            <div id="conversion-type">
+                <label for="unit-type"></label>
+                <select id="unit-type" onchange="selectConversion()">
+                    <option id="selectOpt" selected disabled value="">--Select--</option>
+                    <option id="selectOpt" value="storage">Storage</option>
+                    <option id="selectOpt" value="temperature">Temperature</option>
+                    <option id="selectOpt" value="time">Time</option>
+                    <option id="selectOpt" value="number">Number</option>
+                    <option id="selectOpt" value="currency">Currency</option>
+                </select>
+            </div>
+    
+            <br><br>
+            <div id="conversion-options" onchange="resetCurrentInputs()">Conversion-options will be shown here...</div>
+    
+            <br><br><br><br>
+            <div id="inputs">
+                <label id="InputALabel" for="InputA">Input:</label>
+                <input type="number" step="0.1" id="InputA" placeholder="Enter your amount" oninput="validateInput()" autocomplete="off"/>
+                <input type="button" id="resultBtn" value="↩" onclick="convert()">
+                <br>
+                <label id="OutputLabel" for="Output">Output:</label>
+                <input type="text" id="Output" placeholder="Result will be shown here" readonly/>
+                <input type="button" id="resetBtn" value="Reset I/O" onclick="resetCurrentInputs()">
+            </div>
+            <br>
+        </form>
+    
+    </body>
+    </html>    
