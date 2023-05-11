@@ -7,89 +7,120 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     overflow-x: hidden;
+    font-family:'Times New Roman', Times, serif;
 }
 
 h1 {
+    position: absolute;
     text-align: center;
     background-color: transparent;
     border: solid 2px #050507;
     border-radius: 25px;
-    width: 33%;
-    margin: auto;
-    position: absolute;
+    width: 65%;
+    left: 20%;
     top: 15%;
-    left: 34.5%;
+    margin: auto;
     box-shadow: 7px 10px 15px 7px rgba(0, 0, 0, 0.9);
 }
 
+::placeholder {
+    color: rgb(248, 164, 6);
+}
+
 form {
+    position: absolute;
+    text-align: center;
     background-color: transparent;
     border: solid 2px #050507;
     border-radius: 25px;
-    width: 32%;
-    height: 25%;
     text-align: center;
-    margin: auto;
-    position: absolute;
-    top: 30%;
-    left: 35%;
+    margin: auto; 
+    width: 60%;
+    left: 22.5%;
+    top: 25%;
+    height: 25%;
     box-shadow: 0px 23px 15px 7px rgba(0, 0, 0, 0.9);
 }
 
 #InputA, #Output {
-    color: beige;
-    background-color: transparent;
-    border-color: rgb(248, 164, 6);
-    outline-style: none;
-    border-radius: 6px;
     position: absolute;
+    text-align: left;
+    color: rgb(248, 164, 6);
+    background-color: transparent;
+    border: solid 2px #050507;
+    outline-style: none;
+    border-radius: 6px;  
     left: 25%;
     width: 50%;
     height: 7.5%;
+    box-shadow: 5px 13px 11px rgba(0, 0, 0, 1);
+    transition: 0.2s ease-in-out;
 }
 
-label {
+#InputA {
+    top: 55%;
+}
+
+#Output {
+    top: 75%;
+}
+
+#InputALabel, #OutputLabel {
     position: absolute;
     left: 10%;
 }
 
+#InputALabel {
+    top: 55%;
+}
+
+#OutputLabel {
+    top: 75%;
+}
+
 #InputA:hover {
-    color: beige;
+    color: rgb(248, 164, 6);
     background-color: transparent;
     border-color: rgb(248, 164, 6);
     outline-style: double;
     outline-color: #ffc720;
+    transition: 0.2s ease-in-out;
 }
 
 #Output:hover {
-    color: beige;
+    color: rgb(248, 164, 6);
     background-color: transparent;
-    border-color: rgb(248, 164, 6);
     cursor: default;
 }
 
 #unit-type {
+    position: absolute;
     background-color: transparent;
     border: solid 2px #050507;
     color: rgb(248, 164, 6);
     border-radius: 25px;
     width: 80%;
-    position: absolute;
     left: 10%;
     box-shadow: 0px 8px 14px 8px rgba(0, 0, 0, 0.8);
 }
 
-#selectOpt, #storageOpt, #numberOpt, #storageUnit, #numberUnit {
+#selectOpt, #secondOpts {
     color: rgb(248, 164, 6);
     background-color: #191b28;
 }
 
+select:focus {
+    outline-style: solid;
+    outline-color: rgb(248, 164, 6);
+}
+
 #conversion-options {
-    background-color: transparent;
-    color: rgb(248, 164, 6);
-    width: 48%;
     position: absolute;
-    left: 25%;
+    background-color: transparent;
+    border: solid 2px #050507;
+    color: rgb(248, 164, 6);
+    width: 60%;
+    left: 20%;
     top: 30%;
     box-shadow: 0px 8px 14px 8px rgba(0, 0, 0, 0.8);
     border-radius: 25px;
@@ -103,6 +134,48 @@ label {
     border-radius: 25px;
 }
 
+#resultBtn {
+    position: absolute;
+    font-size: medium;
+    border: solid 2px black;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0.5px 35px;
+    background-color: transparent;
+    color: rgb(248, 164, 6);
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 4px rgba(190, 126, 8, 0.801);
+    transition: 0.5s ease-in-out;
+    top: 55%;
+    right: 15%;
+}
+
+#resultBtn:hover {
+    transition: 0.5s ease-in-out;
+    box-shadow: 0px 0px 5px 4px rgb(255, 166, 0);
+}
+
+#resetBtn {
+    position: absolute;
+    border: solid 2px black;
+    border-radius: 25px;
+    text-align: center;
+    padding: 2px 15px;
+    background-color: transparent;
+    color: rgb(248, 164, 6);
+    cursor: pointer;
+    box-shadow: 0px 8px 14px 8px rgba(0, 0, 0, 0.8);
+    transition: 0.5s ease-in-out;
+    top: 75%;
+    right: 15%;
+}
+
+#resetBtn:hover {
+    background-color: rgb(248, 164, 6);
+    color: black;
+    transition: 0.5s ease-in-out;
+}
+
 ::selection {
     color: #191b28;
     background-color: rgb(248, 164, 6);
@@ -111,4 +184,18 @@ label {
 ::-moz-selection {
     color: #191b28;
     background-color: rgb(248, 164, 6);
+}
+
+@media (min-width: 320px) and (max-width: 1500px) {
+    #resultBtn {
+        padding: 5px 35px;
+        top: 55%;
+        right: 5%;
+    }
+
+    #resetBtn {
+        padding: 5px 25px;
+        top: 77%;
+        right: 3%;
+    }
 }
